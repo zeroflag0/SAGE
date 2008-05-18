@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Sage.Threading.Task">
+    <Position X="1.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>Task.cs</FileName>
+      <HashCode>AhAAAAAAAAAAUgQEAEAAAAAAABAgAAAABAAAIAAACQI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="m_Message" Hidden="true" />
+      <Field Name="m_Next" Hidden="true" />
+      <Field Name="m_NextDelay" Hidden="true" />
+      <Field Name="m_Priority" Hidden="true" />
+      <Field Name="m_ThreadID" Hidden="true" />
+      <Field Name="m_ThreadType" Hidden="true" />
+      <Field Name="m_Time" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.TaskGroup">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>TaskGroup.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAIAAAAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="m_Tasks" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Sage.Threading.Thread">
+    <Position X="6.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Thread.cs</FileName>
+      <HashCode>IYwAIDAAADAAgAgEBhQAAABAQSAACxAIAAAhAAACAAI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PriorityQueue" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="Logging" Hidden="true" />
+      <Field Name="m_Counter" Hidden="true" />
+      <Field Name="m_Disposed" Hidden="true" />
+      <Field Name="m_MessageQueue" Hidden="true" />
+      <Field Name="m_Pool" Hidden="true" />
+      <Field Name="m_PriorityQueue" Hidden="true" />
+      <Field Name="m_Running" Hidden="true" />
+      <Field Name="m_SpecialThreadType" Hidden="true" />
+      <Field Name="m_Work" Hidden="true" />
+      <Field Name="m_Worker" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="Sage.Threading.Thread.ConsoleLogging" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Thread.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.PriorityQueue&lt;T&gt;">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PriorityQueue.cs</FileName>
+      <HashCode>ACAAAAAAQAAECAAAAAAAAAQAAACAAAAAAABAAAAACQA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="m_Comparer" Hidden="true" />
+      <Field Name="m_Items" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.PriorityQueue&lt;T&gt;.CompareHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>PriorityQueue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.Pool">
+    <Position X="6" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Pool.cs</FileName>
+      <HashCode>AAAAAAAEAiAIARAACQKAoAAEQAJgAIAIAACEAAgAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="m_BalanceThreshold" Hidden="true" />
+      <Field Name="m_Initialized" Hidden="true" />
+      <Field Name="m_Last" Hidden="true" />
+      <Field Name="m_LastAutoSelect" Hidden="true" />
+      <Field Name="m_SpecialThreads" Hidden="true" />
+      <Field Name="m_ThreadCount" Hidden="true" />
+      <Field Name="m_ThreadIDs" Hidden="true" />
+      <Field Name="m_Threads" Hidden="true" />
+      <Field Name="PoolStopJoin" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="Sage.Threading.CyclicTask">
+    <Position X="2.75" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>CyclicTask.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAgAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="m_TargetThread" Hidden="true" />
+    </Members>
+  </Class>
+</ClassDiagram>

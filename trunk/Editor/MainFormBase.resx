@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainerLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="splitContainerLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerLeftBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitContainerLeftBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerLeftBottom.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="sceneTree.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="sceneTree.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="sceneTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 309</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="sceneTree.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <metadata name="World.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="&gt;&gt;sceneTree.Name" xml:space="preserve">
+    <value>sceneTree</value>
+  </data>
+  <data name="&gt;&gt;sceneTree.Type" xml:space="preserve">
+    <value>Sage.Editor.SceneTree, Sage.Editor, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;sceneTree.Parent" xml:space="preserve">
+    <value>splitContainerLeftBottom.Panel1</value>
+  </data>
+  <data name="&gt;&gt;sceneTree.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel1.Name" xml:space="preserve">
+    <value>splitContainerLeftBottom.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerLeftBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabNodeEdit.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="propertyGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="propertyGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="propertyGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 246</value>
+  </data>
+  <data name="propertyGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid.Name" xml:space="preserve">
+    <value>propertyGrid</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PropertyGrid, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid.Parent" xml:space="preserve">
+    <value>tabProperties</value>
+  </data>
+  <data name="&gt;&gt;propertyGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabProperties.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabProperties.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabProperties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 252</value>
+  </data>
+  <data name="tabProperties.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabProperties.Text" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="&gt;&gt;tabProperties.Name" xml:space="preserve">
+    <value>tabProperties</value>
+  </data>
+  <data name="&gt;&gt;tabProperties.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabProperties.Parent" xml:space="preserve">
+    <value>tabNodeEdit</value>
+  </data>
+  <data name="&gt;&gt;tabProperties.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="featureEditor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="featureEditor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="featureEditor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 246</value>
+  </data>
+  <data name="featureEditor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;featureEditor.Name" xml:space="preserve">
+    <value>featureEditor</value>
+  </data>
+  <data name="&gt;&gt;featureEditor.Type" xml:space="preserve">
+    <value>Sage.Editor.FeatureEditor, Sage.Editor, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;featureEditor.Parent" xml:space="preserve">
+    <value>tabNodeFeatures</value>
+  </data>
+  <data name="&gt;&gt;featureEditor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabNodeFeatures.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="tabNodeFeatures.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabNodeFeatures.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 252</value>
+  </data>
+  <data name="tabNodeFeatures.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabNodeFeatures.Text" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="&gt;&gt;tabNodeFeatures.Name" xml:space="preserve">
+    <value>tabNodeFeatures</value>
+  </data>
+  <data name="&gt;&gt;tabNodeFeatures.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabNodeFeatures.Parent" xml:space="preserve">
+    <value>tabNodeEdit</value>
+  </data>
+  <data name="&gt;&gt;tabNodeFeatures.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabNodeEdit.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabNodeEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabNodeEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 260</value>
+  </data>
+  <data name="tabNodeEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tabNodeEdit.Name" xml:space="preserve">
+    <value>tabNodeEdit</value>
+  </data>
+  <data name="&gt;&gt;tabNodeEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabNodeEdit.Parent" xml:space="preserve">
+    <value>splitContainerLeftBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tabNodeEdit.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel2.Name" xml:space="preserve">
+    <value>splitContainerLeftBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerLeftBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerLeftBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 573</value>
+  </data>
+  <data name="splitContainerLeftBottom.SplitterDistance" type="System.Int32, mscorlib">
+    <value>309</value>
+  </data>
+  <data name="splitContainerLeftBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Name" xml:space="preserve">
+    <value>splitContainerLeftBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.Parent" xml:space="preserve">
+    <value>splitContainerLeft.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeftBottom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel1.Name" xml:space="preserve">
+    <value>splitContainerLeft.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerLeft</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitContainerBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitContainerBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerBottom.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="sageView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="sageView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="sageView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>522, 392</value>
+  </data>
+  <data name="sageView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;sageView.Name" xml:space="preserve">
+    <value>sageView</value>
+  </data>
+  <data name="&gt;&gt;sageView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Control, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sageView.Parent" xml:space="preserve">
+    <value>panelSageView</value>
+  </data>
+  <data name="&gt;&gt;sageView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelSageView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelSageView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelSageView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>524, 394</value>
+  </data>
+  <data name="panelSageView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panelSageView.Name" xml:space="preserve">
+    <value>panelSageView</value>
+  </data>
+  <data name="&gt;&gt;panelSageView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelSageView.Parent" xml:space="preserve">
+    <value>splitContainerBottom.Panel1</value>
+  </data>
+  <data name="&gt;&gt;panelSageView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel1.Name" xml:space="preserve">
+    <value>splitContainerBottom.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel1.Parent" xml:space="preserve">
+    <value>splitContainerBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="actionHistory.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="actionHistory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="actionHistory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>524, 175</value>
+  </data>
+  <data name="actionHistory.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;actionHistory.Name" xml:space="preserve">
+    <value>actionHistory</value>
+  </data>
+  <data name="&gt;&gt;actionHistory.Type" xml:space="preserve">
+    <value>Sage.Editor.Actions.ActionHistory, Sage.Editor, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;actionHistory.Parent" xml:space="preserve">
+    <value>splitContainerBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;actionHistory.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel2.Name" xml:space="preserve">
+    <value>splitContainerBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>524, 573</value>
+  </data>
+  <data name="splitContainerBottom.SplitterDistance" type="System.Int32, mscorlib">
+    <value>394</value>
+  </data>
+  <data name="splitContainerBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Name" xml:space="preserve">
+    <value>splitContainerBottom</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.Parent" xml:space="preserve">
+    <value>splitContainerLeft.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerBottom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel2.Name" xml:space="preserve">
+    <value>splitContainerLeft.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel2.Parent" xml:space="preserve">
+    <value>splitContainerLeft</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitContainerLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>792, 573</value>
+  </data>
+  <data name="splitContainerLeft.SplitterDistance" type="System.Int32, mscorlib">
+    <value>264</value>
+  </data>
+  <data name="splitContainerLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Name" xml:space="preserve">
+    <value>splitContainerLeft</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitContainerLeft.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="timerSynchronize.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>97, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>792, 573</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>SAGE - World Editor</value>
+  </data>
+  <data name="&gt;&gt;World.Name" xml:space="preserve">
+    <value>World</value>
+  </data>
+  <data name="&gt;&gt;World.Type" xml:space="preserve">
+    <value>Sage.Editor.World, Sage.Editor, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;timerSynchronize.Name" xml:space="preserve">
+    <value>timerSynchronize</value>
+  </data>
+  <data name="&gt;&gt;timerSynchronize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainFormBase</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

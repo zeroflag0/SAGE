@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Sage.Modules.Logging.Log">
+    <Position X="4.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Modules\Logging\Log.cs</FileName>
+      <HashCode>QAAQEsCkAIEEBQAgQYQBBBCAAAAAKFAEAQAQIQCYQEA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_ErrorIndent" Hidden="true" />
+      <Field Name="_ErrorIndentBuffer" Hidden="true" />
+      <Field Name="_ErrorIndentBufferCount" Hidden="true" />
+      <Field Name="_ErrorPostfix" Hidden="true" />
+      <Field Name="_ErrorPrefix" Hidden="true" />
+      <Field Name="_Indent" Hidden="true" />
+      <Field Name="_MessageIndent" Hidden="true" />
+      <Field Name="_MessageIndentBuffer" Hidden="true" />
+      <Field Name="_MessageIndentBufferCount" Hidden="true" />
+      <Field Name="_MessagePostfix" Hidden="true" />
+      <Field Name="_MessagePrefix" Hidden="true" />
+      <Field Name="_Owner" Hidden="true" />
+      <Field Name="_WarningIndent" Hidden="true" />
+      <Field Name="_WarningIndentBuffer" Hidden="true" />
+      <Field Name="_WarningIndentBufferCount" Hidden="true" />
+      <Field Name="_WarningPostfix" Hidden="true" />
+      <Field Name="_WarningPrefix" Hidden="true" />
+      <Field Name="s_Prototype" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Modules.Logging.FileLogger">
+    <Position X="0.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Modules\Logging\FileLogger.cs</FileName>
+      <HashCode>AAAAAACAADAAAAAAQQACAAAIAAEAEFAAAAAAAAEABAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_MasterLogger" Hidden="true" />
+      <Field Name="_Writer" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Sage.Modules.Logging.ILogger" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Modules\Logging\ILogger.cs</FileName>
+      <HashCode>AAAAAACgAIAEBQAAAAABABCAAAAAAEAAAAAQIQAIAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
