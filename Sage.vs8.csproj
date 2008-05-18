@@ -1,0 +1,167 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{9106433F-C718-4DB9-BCDB-E736DCBD17C5}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <RootNamespace>Sage</RootNamespace>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
+    <OutputType>Library</OutputType>
+    <AssemblyName>Sage</AssemblyName>
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>false</Optimize>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE;DEBUG;VERBOSE, _DEBUG_THREADING, _DEBUG_DEPENDENCIES, _DEBUG_MODULE_COMMUNICATION</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <RootNamespace>
+    </RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Any CPU' ">
+    <OutputType>Library</OutputType>
+    <AssemblyName>Sage</AssemblyName>
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE;VERBOSE, DEBUG_THREADING</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <RootNamespace>
+    </RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE;SAGE_LOGGING; SAGE_VERBOSE; SAGE_VERBOSE_THREADING_; WIN32</DefineConstants>
+    <Optimize>true</Optimize>
+    <OutputPath>obj\bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>obj\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SAGE_LOGGING; SAGE_VERBOSE; SAGE_VERBOSE_THREADING_; SAGE_DEBUG_THREADING_; WIN32</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basics\Converter.cs" />
+    <Compile Include="Basics\Degree.cs" />
+    <Compile Include="Basics\ICloneable.cs" />
+    <Compile Include="Basics\IName.cs" />
+    <Compile Include="Basics\IPrototype.cs" />
+    <Compile Include="Basics\IQuaternion.cs" />
+    <Compile Include="Basics\IVector.cs" />
+    <Compile Include="Basics\Parameters.cs" />
+    <Compile Include="Basics\Quaternion.cs" />
+    <Compile Include="Basics\Radian.cs" />
+    <Compile Include="Basics\Vector.cs" />
+    <Compile Include="Data\Base.cs" />
+    <Compile Include="Data\Generic.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Graphics\Feature.cs" />
+    <Compile Include="Graphics\FeatureFactory.cs" />
+    <Compile Include="Graphics\Module.cs" />
+    <Compile Include="Modules\Component.cs" />
+    <Compile Include="Modules\Connections\Exceptions.cs" />
+    <Compile Include="Modules\Dependency.cs" />
+    <Compile Include="Modules\DependencyList.cs" />
+    <Compile Include="Modules\IComponent.cs" />
+    <Compile Include="Modules\IDependency.cs" />
+    <Compile Include="Modules\IDependencyTracer.cs" />
+    <Compile Include="Modules\IGraphicsModule.cs" />
+    <Compile Include="Modules\Connections\Connection.cs" />
+    <Compile Include="ModuleList.cs" />
+    <Compile Include="Modules\Connections\IReceiver.cs" />
+    <Compile Include="Modules\Connections\ISender.cs" />
+    <Compile Include="Modules\Connections\Receiver.cs" />
+    <Compile Include="Modules\Connections\Sender.cs" />
+    <Compile Include="Modules\Feature.cs" />
+    <Compile Include="Modules\FeatureContainer.cs" />
+    <Compile Include="Modules\FeatureFactory.cs" />
+    <Compile Include="Modules\IFeature.cs" />
+    <Compile Include="Core.cs" />
+    <Compile Include="Modules\IFeatureFactory.cs" />
+    <Compile Include="Modules\IModule.cs" />
+    <Compile Include="Modules\IMoveFeature.cs" />
+    <Compile Include="Modules\IScheduleTarget.cs" />
+    <Compile Include="Modules\Logging\ConsoleWriter.cs" />
+    <Compile Include="Modules\Logging\FileWriter.cs" />
+    <Compile Include="Modules\Logging\ILog.cs" />
+    <Compile Include="Modules\Logging\IWriter.cs" />
+    <Compile Include="Modules\Logging\Log.cs" />
+    <Compile Include="Modules\Logging\LogModule.cs" />
+    <Compile Include="Modules\Module.Communication.cs" />
+    <Compile Include="Modules\MoveFeature.cs" />
+    <Compile Include="Modules\MasterFeatureDummy.cs" />
+    <Compile Include="Modules\Module.cs" />
+    <Compile Include="Modules\Scheduler.cs" />
+    <Compile Include="Modules\TimingMode.cs" />
+    <Compile Include="Physics\Force.cs" />
+    <Compile Include="Physics\IObject.cs" />
+    <Compile Include="Physics\Body.cs" />
+    <Compile Include="Physics\Mass.cs" />
+    <Compile Include="Physics\World.cs" />
+    <Compile Include="Threading\CyclicTask.cs" />
+    <Compile Include="Threading\MessageQueue.cs" />
+    <Compile Include="Modules\MessageSocket.cs" />
+    <Compile Include="Threading\SpecialThread.cs" />
+    <Compile Include="Threading\TaskGroup.cs" />
+    <Compile Include="World\Entity.cs" />
+    <Compile Include="World\Manager.cs" />
+    <Compile Include="World\Node.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\IMessage.cs" />
+    <Compile Include="Threading\IMessageQueue.cs" />
+    <Compile Include="Threading\Pool.cs" />
+    <Compile Include="Threading\Message0.cs" />
+    <Compile Include="Threading\Message1.cs" />
+    <Compile Include="Threading\Message2.cs" />
+    <Compile Include="Threading\Message3.cs" />
+    <Compile Include="Threading\Message4.cs" />
+    <Compile Include="Threading\LocklessQueue.cs" />
+    <Compile Include="Threading\PriorityQueue.cs" />
+    <Compile Include="Threading\Task.cs" />
+    <Compile Include="Threading\Thread.cs" />
+    <Compile Include="Threading\UtilizationCounter.cs" />
+    <Compile Include="Threading\UtilizationItem.cs" />
+    <Compile Include="Threading\UtilizationState.cs" />
+    <Compile Include="World\Tile.cs" />
+    <Compile Include="Basics\DegreeConverter.cs" />
+    <Compile Include="Basics\Convertible.cs" />
+    <Compile Include="Basics\RadianConverter.cs" />
+    <Compile Include="Basics\VectorConverter.cs" />
+    <Compile Include="Basics\QuaternionConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\_ClassDiagram.cd" />
+    <None Include="Graphics\_ClassDiagram.cd" />
+    <None Include="Modules\Connections\_ClassDiagram.cd" />
+    <None Include="Modules\Logging\_ClassDiagram.cd" />
+    <None Include="Modules\_ClassDiagram.cd" />
+    <None Include="Modules\_ModuleFeature_Diagram.cd" />
+    <None Include="Threading\_ClassDiagram.cd" />
+    <None Include="_Diagram_Sage.cd" />
+    <None Include="_ModuleCommunication_ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SceneFormat.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\zeroflag\Serialization\zeroflag.Serialization.csproj">
+      <Project>{48823787-7042-494D-B250-A3E60085BB2B}</Project>
+      <Name>zeroflag.Serialization</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Sage.Threading.Thread" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Thread.cs</FileName>
+      <HashCode>IYwAIDAAADAAgAgEBhQAAABAQSAACxAIAAAhAAAiAAI=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.LockfreeQueue&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>LockfreeQueue.cs</FileName>
+      <HashCode>ACRAIAQAAAAAAIAAACAAAAAAAECAAAAAAAAAAABASAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Message&lt;T1, T2, T3, T4&gt;" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Message4.cs</FileName>
+      <HashCode>AAAAAAIAAAAAAQgEAAAABAAAAYAAAAAAQAAgAAAAQAI=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.Message&lt;T1, T2, T3, T4&gt;.Call" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Message0.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Message" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Message0.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAQgEAAAABAAAAAAAAAAAAAAAAAAAQAI=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.Message.Call" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Message0.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Message&lt;T1&gt;" BaseTypeListCollapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Message1.cs</FileName>
+      <HashCode>AAAAAAIAAAAAAQgEAAAABAAAAIAAAAAAAAAAAAAAQAI=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.Message&lt;T1&gt;.Call" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Message1.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Message&lt;T1, T2&gt;" BaseTypeListCollapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Message2.cs</FileName>
+      <HashCode>AAAAAAIAAAAAAQgEAAAABAAAAIAAAAAAQAAAAAAAQAI=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.Message&lt;T1, T2&gt;.Call" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Message0.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Message&lt;T1, T2, T3&gt;" BaseTypeListCollapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Message3.cs</FileName>
+      <HashCode>AAAAAAIAAAAAAQgEAAAABAAAAIAAAAAAQAAgAAAAQAI=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Delegate Name="Sage.Threading.Message&lt;T1, T2, T3&gt;.Call" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Message0.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sage.Threading.Task">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Task.cs</FileName>
+      <HashCode>AhAAAAAAAAAAQAQEAEAAAAAAABAgAAAAAAAAIAAACQI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_Message" Hidden="true" />
+      <Field Name="_Priority" Hidden="true" />
+      <Field Name="_ThreadID" Hidden="true" />
+      <Field Name="_ThreadType" Hidden="true" />
+      <Field Name="_Time" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.TaskGroup">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>TaskGroup.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Sage.Threading.IMessageQueue&lt;T&gt;" Collapsed="true">
+    <Position X="0.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>IMessageQueue.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Sage.Threading.IMessageQueueReader&lt;T&gt;">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>IMessageQueue.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Sage.Threading.IMessageQueueWriter&lt;T&gt;">
+    <Position X="3.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>IMessageQueue.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Sage.Threading.IMessage">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>IMessage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>

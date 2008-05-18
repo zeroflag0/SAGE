@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<object name="TestScene" x="0.0" y="0.0" z="0.0">
+	<object name="TestObject1" x="10.0" y="5.0" z="4.0">
+		<model source="TestMesh.mesh"/>
+		<physics shape="box" mass="50" size="5.0,5.0,10.0"/>
+	</object>
+</object>

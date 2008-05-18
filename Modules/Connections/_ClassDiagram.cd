@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Sage.Modules.Connections.Sender" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="7" Width="3.5" />
+    <TypeIdentifier>
+      <FileName>Modules\Connections\Sender.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAACAAAAIAAAAAAAAEAAAAAACAACAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Connections" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_Connections" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Modules.Connections.Connection">
+    <Position X="7.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Modules\Connections\Connection.cs</FileName>
+      <HashCode>AIAAAAAAAAAAIABEAAAAAAAAAAAEAAAAAgAAAAAIAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Receiver" />
+      <Property Name="Sender" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_Receiver" Hidden="true" />
+      <Field Name="_Sender" Hidden="true" />
+    </Members>
+    <InheritanceLine Type="Sage.Threading.MessageQueue&lt;T&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="8.611" Y="3.559" />
+        <Point X="8.611" Y="3.875" />
+        <Point X="8.75" Y="3.875" />
+        <Point X="8.75" Y="4.25" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="Receiver" Type="Sage.Modules.Connections.IReceiver" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="5.188" />
+        <Point X="11.5" Y="5.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.733" Y="0.012" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Sender" Type="Sage.Modules.Connections.ISender" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="5.188" />
+        <Point X="5.75" Y="5.188" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.709" Y="0.012" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Modules.Connections.Receiver" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="7" Width="3.5" />
+    <TypeIdentifier>
+      <FileName>Modules\Connections\Receiver.cs</FileName>
+      <HashCode>AIAAAEAAAAAAAAAACAAAAIAAAACAAAEAAAAAACCAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Connections" />
+    </ShowAsCollectionAssociation>
+    <Members>
+      <Field Name="_Connections" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Connections" Type="Sage.Modules.Connections.Connection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.877" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sage.Threading.MessageQueue&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Threading\MessageQueue.cs</FileName>
+      <HashCode>ACRAIAQAAAAAAIAAACAAAAAAAECAAAAAAAAAAABASAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_Buffer" Hidden="true" />
+      <Field Name="_WriteQueue" Hidden="true" />
+      <Field Name="ReadIndex" Hidden="true" />
+      <Field Name="WriteIndex" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="Sage.Threading.MessageQueue&lt;T&gt;.MessageContainer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Threading\MessageQueue.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Sage.Modules.Connections.IReceiver">
+    <Position X="11.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Modules\Connections\IReceiver.cs</FileName>
+      <HashCode>AIAAAEAAAAAAAAAACAAAAIAAAACAAAAAAAAAAACAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="this[Sage.Modules.Connections.ISender]" />
+    </ShowAsAssociation>
+    <AssociationLine Name="this[Sage.Modules.Connections.ISender]" Type="Sage.Modules.Connections.Connection" FixedToPoint="true">
+      <Path>
+        <Point X="11.5" Y="4.688" />
+        <Point X="10" Y="4.688" />
+      </Path>
+    </AssociationLine>
+  </Interface>
+  <Interface Name="Sage.Modules.Connections.ISender">
+    <Position X="2.5" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Modules\Connections\ISender.cs</FileName>
+      <HashCode>AAQAAAAAAAAAAAAACAAAAIAAAAAAAAAAAAAAAAAACAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="this[Sage.Modules.Connections.IReceiver]" />
+    </ShowAsAssociation>
+    <AssociationLine Name="this[Sage.Modules.Connections.IReceiver]" Type="Sage.Modules.Connections.Connection" FixedFromPoint="true">
+      <Path>
+        <Point X="5.75" Y="4.688" />
+        <Point X="7.5" Y="4.688" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.044" Y="0.036" />
+      </MemberNameLabel>
+    </AssociationLine>
+  </Interface>
+</ClassDiagram>
