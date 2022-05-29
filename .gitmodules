@@ -1,0 +1,3 @@
+[submodule "zerolib"]
+	path = zerolib
+	url = https://github.com/zeroflag0/zeroflag.git
