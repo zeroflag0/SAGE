@@ -121,14 +121,16 @@ namespace Sage.Threading
 
 		protected virtual void Push()
 		{
-			this.Items.Enqueue(new UtilizationItem(this.State, this.Watch.ElapsedMilliseconds));
-
-			// bring down the memory size to the specified limit...
-			while (this.Items.Count > this.HistorySize)
+			lock (this.Items)
 			{
-				this.Items.Dequeue();
-			}
+				this.Items.Enqueue(new UtilizationItem(this.State, this.Watch.ElapsedMilliseconds));
 
+				// bring down the memory size to the specified limit...
+				while (this.Items.Count > this.HistorySize)
+				{
+					this.Items.Dequeue();
+				}
+			}
 #if !OPTIMIZE_TIMING
 			double work = 0.0;
 			double all = 0.0;
@@ -168,7 +170,9 @@ namespace Sage.Threading
 				{
 					double work = 0.0;
 					double all = 0.0;
-					UtilizationItem[] items = this.Items.ToArray();
+					UtilizationItem[] items;
+					lock (this.Items)
+						items = this.Items.ToArray();
 
 					foreach (UtilizationItem item in items)
 					{

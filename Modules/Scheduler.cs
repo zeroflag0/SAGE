@@ -29,6 +29,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 using Sage.Basics;
@@ -39,11 +40,11 @@ namespace Sage.Modules
 	public class Scheduler : ScheduledTask
 	{
 		#region Properties
-		IScheduleTarget _Target;
+		Module _Target;
 		/// <summary>
 		/// The target which should be scheduled.
 		/// </summary>
-		public IScheduleTarget Target
+		public Module Target
 		{
 			get { return _Target; }
 			set { _Target = value; }
@@ -88,7 +89,7 @@ namespace Sage.Modules
 
 		#endregion Properties
 		#region Constructor
-		public Scheduler(IScheduleTarget target, Core core)
+		public Scheduler(Module target, Core core)
 			: base((ITask)null)
 		{
 			this.Target = target;
@@ -168,6 +169,7 @@ namespace Sage.Modules
 			this.Thread.Queue(this);
 		}
 
+		int _FailCount = 0;
 		/// <summary>
 		/// Perform the next scheduled step.
 		/// </summary>
@@ -183,12 +185,15 @@ namespace Sage.Modules
 						if (this.Target.Initialize())
 						{
 							this.Target.ScheduleState = ScheduleState.Running;
+							_FailCount = 0;
 						}
 					}
 					catch (Exception exc)
 					{
 						((Module)this.Target).Log.Error(exc);
 						this.Target.ScheduleState = ScheduleState.Initialization;
+						//if (_FailCount++ > 3)
+						throw;
 					}
 					return true;
 				case ScheduleState.Running:

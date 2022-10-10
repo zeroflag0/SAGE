@@ -33,7 +33,7 @@ using System.Text;
 
 using Sage.Basics;
 
-//using BaseType = OgreDotNet.Degree;
+//using BaseType = org.ogre.OgreDotNet.Degree;
 using real = System.Single;
 
 namespace Sage

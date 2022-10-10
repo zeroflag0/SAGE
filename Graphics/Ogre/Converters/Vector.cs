@@ -31,7 +31,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using Mogre;
+using org.ogre;
 
 namespace Sage.Graphics.Ogre.Converters
 {

@@ -34,16 +34,16 @@ using System.Text;
 
 namespace Sage.Graphics.Ogre.Converters
 {
-	public class Radian : Sage.Basics.RadianConverter<Mogre.Radian>
+	public class Radian : Sage.Basics.RadianConverter<org.ogre.Radian>
 	{
-		protected override Mogre.Radian ConvertFromSage(Sage.Radian from)
+		protected override org.ogre.Radian ConvertFromSage(Sage.Radian from)
 		{
-			return new Mogre.Radian(from.ValueRadian);
+			return new org.ogre.Radian(from.ValueRadian);
 		}
 
-		protected override Sage.Radian ConvertToSage(Mogre.Radian from)
+		protected override Sage.Radian ConvertToSage(org.ogre.Radian from)
 		{
-			return new Sage.Radian(from.ValueRadians);
+			return new Sage.Radian(from.valueRadians());
 		}
 	}
 }

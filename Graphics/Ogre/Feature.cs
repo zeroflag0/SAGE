@@ -35,7 +35,6 @@ using Sage.Basics;
 using Sage.Modules;
 using Sage.World;
 
-using ogre = Mogre;
 
 namespace Sage.Graphics.Ogre
 {
@@ -51,12 +50,12 @@ namespace Sage.Graphics.Ogre
 		{
 		}
 
-		ogre.SceneNode _GraphicsNode;
+		org.ogre.SceneNode _GraphicsNode;
 
 		/// <summary>
 		/// Hook into the renderer's scene.
 		/// </summary>
-		public ogre.SceneNode GraphicsNode
+		public org.ogre.SceneNode GraphicsNode
 		{
 			get { return _GraphicsNode; }
 			set { _GraphicsNode = value; }

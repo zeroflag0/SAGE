@@ -212,7 +212,7 @@ namespace Sage.Threading
 			//this.Worker.TrySetApartmentState(ApartmentState.STA);
 
 			this.Pool = manager;
-			this.PriorityQueue.Comparer = delegate(ScheduledTask x, ScheduledTask y) { return (int)(x.Time - y.Time); };
+			this.PriorityQueue.Comparer = delegate (ScheduledTask x, ScheduledTask y) { return (int)(x.Time - y.Time); };
 #if SAGE_LOGGING
 			this.Logging = new Log("Thread" + this.ID.ToString());
 #endif//SAGE_LOGGING
@@ -398,17 +398,20 @@ namespace Sage.Threading
 #if SAGE_DEBUG_THREADING
 			this.Logging.Message("Executing " + task.Message.ToString() + ". [" + this.PriorityQueue.Count + (this.MessageQueue.IsEmpty ? "+" : "") + " remaining , " + task.Time + "-" + Pool.Now + "=" + (task.Time - Pool.Now) + "ms]");
 #endif
-			try
-			{
-				task.Run(this);
+			//try
+			//{
+			task.Run(this);
 #if SAGE_DEBUG_THREADING
 				this.Logging.Message("Executed " + task.Message.ToString());
 #endif
-			}
-			catch (Exception exc)
-			{
-				this.Logging.Error("Exception from task: " + task.Message.ToString() + "\n" + exc.ToString());
-			}
+			//	_FailCount = 0;
+			//}
+			//catch (Exception exc)
+			//{
+			//	this.Logging.Error("Exception from task: " + _FailCount + " " + task.Message.ToString() + "\n" + exc.ToString());
+			//	if (_FailCount++ > 3)
+			//		throw;
+			//}
 		}
 
 		#endregion Task Processing

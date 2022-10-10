@@ -33,7 +33,7 @@ using System.Text;
 
 using Sage.Basics;
 
-//using BaseType = OgreDotNet.Radian;
+//using BaseType = org.ogre.OgreDotNet.Radian;
 using real = System.Single;
 
 namespace Sage

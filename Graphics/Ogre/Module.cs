@@ -29,8 +29,13 @@
 
 using System;
 using Sage.Modules;
-using Mogre;
 using real = System.Single;
+using org.ogre;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Sage.World;
 
 namespace Sage.Graphics.Ogre
 {
@@ -41,95 +46,58 @@ namespace Sage.Graphics.Ogre
 			get { return "Graphics.Ogre"; }
 		}
 
-		#region Root
-
-		private Root _Root = default(Root);
-
-		public Root Root
+		static ApplicationContextBase _OgreApp;
+		static ApplicationContextBase CreateOgreApp()
 		{
-			get { return _Root; }
-			protected set
+			var app = new ApplicationContextBase("SAGE2");
+			app.initApp();
+			return app;
+		}
+		public ApplicationContextBase OgreApp
+		// lazy static init...
+		{
+			get
 			{
-				if (_Root != value)
-				{
-					_Root = value;
-				}
+				if (_OgreApp == null)
+					lock (typeof(ApplicationContextBase))
+						if (_OgreApp == null)
+							_OgreApp = CreateOgreApp();
+				return _OgreApp;
 			}
 		}
-		#endregion Root
 
-		#region SceneManager
-
-		private SceneManager _SceneManager = default(SceneManager);
+		public org.ogre.Root Root
+		{
+			get { return this.OgreApp.getRoot(); }
+		}
 
 		public SceneManager SceneManager
 		{
-			get { return _SceneManager; }
-			protected set
-			{
-				if (_SceneManager != value)
-				{
-					_SceneManager = value;
-				}
-			}
+			get;
+			protected set;
 		}
-		#endregion SceneManager
-
-		#region Window
-
-		private RenderWindow _Window = default(RenderWindow);
 
 		public RenderWindow Window
 		{
-			get { return _Window; }
-			protected set
-			{
-				if (_Window != value)
-				{
-					_Window = value;
-				}
-			}
+			get { return this.OgreApp.getRenderWindow(); }
 		}
-		#endregion Window
-
-		#region Camera
-
-		private Camera _Camera = default(Camera);
 
 		public Camera Camera
 		{
-			get { return _Camera; }
-			protected set
-			{
-				if (_Camera != value)
-				{
-					_Camera = value;
-				}
-			}
+			get;
+			protected set;
 		}
-		#endregion Camera
-
-		#region Viewport
-
-		private Viewport _Viewport = default(Viewport);
 
 		public Viewport Viewport
 		{
-			get { return _Viewport; }
-			set
-			{
-				if (_Viewport != value)
-				{
-					_Viewport = value;
-				}
-			}
+			get;
+			set;
 		}
-		#endregion Viewport
 
 		protected virtual bool RestoreConfig
 		{
 			//TODO: configure from files...
-			get { return true; }
+			get { return false; }
 		}
 
 		protected override zeroflag.Collections.List<IFeatureFactory> FeaturesCreate
@@ -143,41 +111,78 @@ namespace Sage.Graphics.Ogre
 			}
 		}
 
+		public Module() : base()
+		{ }
+
 		protected virtual void InitializeGraphics()
 		{
-			this.Root = new Root();
-
 			this.Configure();
-			this.Window.IsActive = false;
+			this.OgreApp.getRenderWindow().setActive(false);
+			try
+			{
+				this.SetupResources();
 
-			this.SetupResources();
+				// Create any resource listeners (for loading screens)
+				this.CreateResourceListener();
+				// Load resources
+				this.LoadResources();
 
-			// Create any resource listeners (for loading screens)
-			this.CreateResourceListener();
-			// Load resources
-			this.LoadResources();
+				this.ChooseSceneManager();
+				this.CreateCamera();
+				this.CreateViewports();
 
-			this.ChooseSceneManager();
-			this.CreateCamera();
-			this.CreateViewports();
+				// Set default mipmap level (NB some APIs ignore this)
+				TextureManager.getSingleton().setDefaultNumMipmaps(5);
 
-			// Set default mipmap level (NB some APIs ignore this)
-			TextureManager.Singleton.DefaultNumMipmaps = 5;
-
-			// Create the scene
-			this.CreateScene();
-			this.Window.IsActive = true;
+				// Create the scene
+				this.CreateScene();
+			}
+			finally
+			{
+				this.OgreApp.getRenderWindow().setActive(true);
+			}
 		}
 
+		RenderSystem SelectRenderer()
+		{
+			RenderSystemList renderersRaw = this.Root.getAvailableRenderers();
+			Dictionary<string, RenderSystem> renderers = new Dictionary<string, RenderSystem>();
+			foreach (RenderSystem renderer in renderersRaw)
+			{
+				this.Log.Message("Available renderer: " + renderer.getName());
+				renderers.Add(renderer.getName(), renderer);
+			}
+			string[] preferences =
+			{
+				"Vulkan Rendering Subsystem",
+				"Direct3D11 Rendering Subsystem",
+				"OpenGL 3+ Rendering Subsystem",
+			};
+			// select by preference...
+			foreach (var name in preferences)
+				if (renderers.ContainsKey(name))
+					return renderers[name];
+
+			foreach (RenderSystem renderer in renderers.Values)
+				if (renderer != null)
+					return renderer;
+
+			return null;
+		}
 		protected virtual void Configure()
 		{
+			return;
+			const string title = "SAGE";
+			var renderer = this.SelectRenderer();
+			this.Log.Message("Selected renderer: " + renderer.getName());
+			this.Root.setRenderSystem(renderer);
+
 			if (this.RenderingTarget == IntPtr.Zero)
 			{
-				if (this.RestoreConfig && this.Root.RestoreConfig() || this.Root.ShowConfigDialog())
+				if (this.RestoreConfig && this.Root.restoreConfig() || this.Root.showConfigDialog(null))
 				{
 					// If returned true, user clicked OK so initialise
-					// Here we choose to let the system create a default rendering this.Window by passing 'true'
-					this.Window = this.Root.Initialise(true);
+					this.Root.initialise(true, title);
 				}
 				else
 				{
@@ -186,25 +191,10 @@ namespace Sage.Graphics.Ogre
 			}
 			else
 			{
-				RenderSystemList renderers = this.Root.GetAvailableRenderers();
-				foreach (RenderSystem renderer in renderers)
-				{
-					if (renderer != null)
-					{
-						this.Log.Message("Selected renderer: " + renderer.Name);
-						this.Root.RenderSystem = renderer;
-						break;
-					}
-				}
-				RenderSystem renderSystem = this.Root.RenderSystem;
-				renderSystem.SetConfigOption("Full Screen", "No");
-				renderSystem.SetConfigOption("VSync", "No");
-				renderSystem.SetConfigOption("Video Mode", "800 x 600 @ 32-bit colour");
-
-				NameValuePairList config = new NameValuePairList();
+				this.Root.initialise(false, title);
+				NameValueMap config = new NameValueMap();
 				config["externalWindowHandle"] = this.RenderingTarget.ToInt64().ToString();
-				this.Root.Initialise(false);
-				this.Window = this.Root.CreateRenderWindow("SAGE", 800, 600, false, config);
+				this.Root.createRenderWindow(title, 800, 600, false, config);
 			}
 		}
 
@@ -213,45 +203,51 @@ namespace Sage.Graphics.Ogre
 		/// </summary>
 		public virtual void SetupResources()
 		{
+			return;
 			// Load resource paths from config file
-			ConfigFile cf = new ConfigFile();
-			cf.Load("resources.cfg", "\t:=", true);
-
-			// Go through all sections & settings in the file
-			ConfigFile.SectionIterator seci = cf.GetSectionIterator();
-
-			String secName, typeName, archName;
-
-			// Normally we would use the foreach syntax, which enumerates the values, but in this case we need CurrentKey too;
-			while (seci.MoveNext())
+			//ConfigFile cf = new ConfigFile();
+			//cf.loadDirect("resources.cfg", "\t:=", true);
+			// in ogre C# bindings ConfigFile only generates SWIGTYPE_p_std__multimapT_std__string_std__string_t which has no bindings to get values...
+			// manual implementation for now...
+			var resFile = "resources.cfg";
+			var lines = File.ReadAllLines(resFile);
+			foreach (var line in lines)
 			{
-				secName = seci.CurrentKey;
-				ConfigFile.SettingsMultiMap settings = seci.Current;
-				foreach (System.Collections.Generic.KeyValuePair<string, string> pair in settings)
+				if (line.Trim().Length == 0) continue;
+				if (line.Trim().StartsWith("#")) continue;
+
+				string section = "General";
+				if (line.Trim().StartsWith("[") && line.Contains("]"))
 				{
-					typeName = pair.Key;
-					archName = pair.Value;
-					ResourceGroupManager.Singleton.AddResourceLocation(archName, typeName, secName);
+					var start = line.IndexOf('[');
+					var end = line.IndexOf(']', start + 1);
+					section = line.Substring(start + 1, end - start - 1);
+					continue;
 				}
+				if (!line.Contains("="))
+				{
+					this.Log.Warning("Line doesn't seem to be res/ini-format: (" + resFile + ")\n" + line);
+					continue;
+				}
+				string withoutComment = line.Split(new char[] { '#' }, 2)[0];
+				var parts = withoutComment.Split(new char[] { '=' }, 2);
+
+				ResourceGroupManager.getSingleton().addResourceLocation(parts[0], parts[1], section);
 			}
 		}
+
 		public virtual void ChooseSceneManager()
 		{
 			// Get the SceneManager, in this case a generic one
-			this.SceneManager = this.Root.CreateSceneManager(SceneType.ST_GENERIC, "SceneMgr");
+			this.SceneManager = this.Root.createSceneManager();
 
 		}
 
 		public virtual void CreateCamera()
 		{
 			// Create the this.Camera
-			this.Camera = this.SceneManager.CreateCamera("PlayerCam");
+			this.Camera = this.SceneManager.createCamera("PlayerCam");
 
-			// Position it at 500 in Z direction
-			this.Camera.Position = new Vector3(0, 20, 20);
-			// Look back along -Z
-			this.Camera.LookAt(new Vector3(0, 15, -1));
-			this.Camera.NearClipDistance = 0.5f;
 		}
 
 		public virtual void CreateFrameListener()
@@ -261,11 +257,11 @@ namespace Sage.Graphics.Ogre
 		public virtual void CreateViewports()
 		{
 			// Create one this.Viewport, entire this.Window
-			this.Viewport = this.Window.AddViewport(this.Camera);
-			this.Viewport.BackgroundColour = new ColourValue(0, 0, 0);
+			this.Viewport = this.Window.addViewport(this.Camera);
+			this.Viewport.setBackgroundColour(new ColourValue(0, 0, 0));
 
 			// Alter the this.Camera aspect ratio to match the this.Viewport
-			this.Camera.AspectRatio = ((float)this.Viewport.ActualWidth) / ((float)this.Viewport.ActualHeight);
+			this.Camera.setAspectRatio(((float)this.Viewport.getActualWidth()) / ((float)this.Viewport.getActualHeight()));
 		}
 
 		/// <summary>
@@ -283,13 +279,13 @@ namespace Sage.Graphics.Ogre
 		public virtual void LoadResources()
 		{
 			// Initialise, parse scripts etc
-			ResourceGroupManager.Singleton.InitialiseAllResourceGroups();
+			ResourceGroupManager.getSingleton().initialiseAllResourceGroups();
 		}
 
 
 		public override void TakeScreenshot(string fileName)
 		{
-			this.Window.WriteContentsToFile(fileName);
+			this.Window.writeContentsToFile(fileName);
 		}
 
 
@@ -325,7 +321,7 @@ namespace Sage.Graphics.Ogre
 			ogre = this.SceneManager.CreateEntity("ogre", "ogrehead.mesh");
 			node = this.SceneManager.RootSceneNode.CreateChildSceneNode();
 			node.AttachObject(ogre);
-			node.Translate(new Mogre.Vector3(0.0f, 10.0f, -50.0f));
+			node.Translate(new Ogre.Vector3(0.0f, 10.0f, -50.0f));
 #endif
 		}
 
@@ -352,26 +348,24 @@ namespace Sage.Graphics.Ogre
 		{
 			try
 			{
-				if (this.Window == null || this.Window.IsClosed)
+				if (this.Window == null || this.Window.isClosed())
 				{
 					this.Log.Message("Window closed, requesting shutdown...");
 					this.Core.Shutdown();
 					return;
 				}
-				if (!this.Window.IsActive)
+				if (!this.Window.isActive())
 					// keep rendering when deselected...
-					this.Window.IsActive = true;
+					this.Window.setActive(true);
 
 				//RenderTarget.FrameStats stats = this.Window.GetStatistics();
 				//if (1000f / stats.LastFPS < (float)this.Interval * 1.20f)
 				//{
 				//    this.Logging.Warning("R
 				//}
-
-				Mogre.WindowEventUtilities.MessagePump();
 				System.Diagnostics.Stopwatch stop = new System.Diagnostics.Stopwatch();
 				stop.Start();
-				this.Root.RenderOneFrame();
+				this.Root.renderOneFrame();
 				stop.Stop();
 				if ((double)stop.ElapsedMilliseconds > (double)this.Interval * 1.1)
 				{
@@ -389,17 +383,17 @@ namespace Sage.Graphics.Ogre
 			base.OnResize();
 
 			if (this.Window != null)
-				this.Window.WindowMovedOrResized();
+				this.Window.windowMovedOrResized();
 
 			if (this.Camera != null && this.Viewport != null)
 			{
-				this.Camera.AspectRatio = (real)this.Viewport.ActualWidth / (real)this.Viewport.ActualHeight;
+				this.Camera.setAspectRatio((real)this.Viewport.getActualWidth() / (real)this.Viewport.getActualHeight());
 			}
 		}
 		public override void TestRotate(float d)
 		{
 #if TESTSCENE
-			node.Rotate(Vector.UNIT_Y.ConvertTo<Mogre.Vector3>(), new Radian(d, true).ConvertTo<Mogre.Radian>());
+			node.Rotate(Vector.UNIT_Y.ConvertTo<Ogre.Vector3>(), new Radian(d, true).ConvertTo<Radian>());
 #endif
 		}
 
@@ -408,8 +402,9 @@ namespace Sage.Graphics.Ogre
 			try
 			{
 				this.Log.Message("Shutting down...");
-				this.Window.Destroy();
-				this.Root.Dispose();
+				//this.Window.destroy();
+				//this.Root.Dispose();
+				this.OgreApp.closeApp();
 				this.Log.Message("Shutdown complete.");
 			}
 			catch (Exception exc)

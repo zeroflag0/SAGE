@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <ProjectGuid>{9106433F-C718-4DB9-BCDB-E736DCBD17C5}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +12,8 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Any CPU' ">
     <OutputType>Library</OutputType>
@@ -43,10 +45,13 @@
     <DefineConstants>TRACE;SAGE_LOGGING; SAGE_VERBOSE; SAGE_VERBOSE_THREADING_; WIN32</DefineConstants>
     <Optimize>true</Optimize>
     <OutputPath>obj\bin\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>obj\bin\</OutputPath>
     <DefineConstants>TRACE;DEBUG;SAGE_LOGGING; SAGE_VERBOSE; SAGE_VERBOSE_THREADING_; SAGE_DEBUG_THREADING_; WIN32</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -34,14 +34,14 @@ using System.Text;
 
 namespace Sage.Graphics.Ogre.Converters
 {
-	public class Quaternion : Sage.Basics.QuaternionConverter<Mogre.Quaternion>
+	public class Quaternion : Sage.Basics.QuaternionConverter<org.ogre.Quaternion>
 	{
-		protected override Mogre.Quaternion ConvertFromSage(Sage.Quaternion from)
+		protected override org.ogre.Quaternion ConvertFromSage(Sage.Quaternion from)
 		{
-			return new Mogre.Quaternion(from.W, from.X, from.Y, from.Z);
+			return new org.ogre.Quaternion(from.W, from.X, from.Y, from.Z);
 		}
 
-		protected override Sage.Quaternion ConvertToSage(Mogre.Quaternion from)
+		protected override Sage.Quaternion ConvertToSage(org.ogre.Quaternion from)
 		{
 			return new Sage.Quaternion(from.y, from.x, from.y, from.z);
 		}
